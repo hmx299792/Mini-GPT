@@ -1,0 +1,56 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+build/
+dist/
+wheels/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test and tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+
+# Downloaded and tokenized training datasets
+/data/openwebtext/
+/data/tinystory/
+
+# Model checkpoints and experiment logs
+checkpoints/
+checkpoint_*.pt
+final_checkpoint_*.pt
+/wandb/
+/runs/
+/logs/
+*.log
+events.out.tfevents.*
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# Local Git metadata backups
+.git.codex-backup-*/
