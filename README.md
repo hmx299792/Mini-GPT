@@ -22,8 +22,7 @@ python -m basics.train `
   --save_interval 2500 `
   --log_interval 1 `
   --save_ckp_path ./checkpoints/tinystories `
-  --wandb_project mini-gpt `
-  --wandb_run_name tinystories-gqa-8q2kv-30k
+  --no_wandb
 2.文本生成
 python -m basics.generate `
   --checkpoint ./checkpoints/tinystories/final_checkpoint_30000.pt `
