@@ -23,6 +23,7 @@ class QuantizedSwiGLU(nn.Module):
         return self.w2((gate * torch.sigmoid(gate)) * self.w3(inputs))
 
 
+#返回 bitsandbytes 模块供后续使用
 def check_backend(device, compute_dtype):
     if device.type != 'cuda' or not torch.version.cuda or not torch.cuda.is_available():
         raise RuntimeError('QLoRA 需要 NVIDIA CUDA 和 CUDA 版 PyTorch，请使用 --device cuda')
@@ -89,6 +90,6 @@ def quantize_model(model, config, device):
                            f'PyTorch CUDA {torch.version.cuda}，设备 {torch.cuda.get_device_name(device)}') from exc
     model.embedding.to(device)
     model.output_norm.to(device)
-    # GPT-2 词表的 50,257 个输出会触发此 CUDA 构建的 4-bit 反向对齐错误。
+    #为什么不量化project：GPT-2 词表的 50,257 个输出会触发此 CUDA 构建的 4-bit 反向对齐错误。
     model.project.to(device)
     return bnb.__version__

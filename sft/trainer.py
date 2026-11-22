@@ -115,6 +115,7 @@ def train(model, method, config, args, device, base, output, lora, quantization,
 
         record({'event': 'start', 'method': method, **counts, 'planned_steps': total_steps,
                 'context_len': config['context_len'], 'base': base, 'dataset_manifest_sha256': manifest_sha})
+        
         for epoch in range(1, args.epochs + 1):
             model.train()
             optimizer.zero_grad(set_to_none=True)

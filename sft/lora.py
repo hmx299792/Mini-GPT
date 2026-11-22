@@ -46,7 +46,7 @@ def adapter_parameters(model):
 
 
 def adapter_state(model):
-    return {name: param.detach().cpu().clone() for name, param in adapter_parameters(model).items()}
+    return {name: param.detach().cpu().clone() for name, param in adapter_parameters(model).items()}#.items() 是 Python 字典（dict） 的标准方法，用来同时拿到字典的键和值
 
 
 @torch.no_grad()
