@@ -170,7 +170,7 @@ def train(model, method, config, args, device, base, output, lora, quantization,
         record({'event': 'complete', 'checkpoint': str(output / 'final.pt'), **summary})
 
 
-def train_cli(method):
+def train_cli(method): #命令行入口函数
     parser = training_parser(method)
     args = parser.parse_args()
     validate_training_args(parser, args)
